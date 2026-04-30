@@ -1,3 +1,10 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "app-logo",
+      "description": "SmileScan Logo",
+      "imageUrl": "https://picsum.photos/seed/smilescan-logo/120/120",
+      "imageHint": "dental logo"
+    }
+  ]
 }
