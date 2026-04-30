@@ -23,28 +23,28 @@ interface ResultsStepProps {
 export function ResultsStep({ results, onReset }: ResultsStepProps) {
   const metrics = [
     { 
-      label: "TOOTH COLOR", 
+      label: "Tooth Color", 
       value: results.keyMetrics.toothColor, 
       color: "text-amber-600",
       bgColor: "bg-amber-50/50",
       borderColor: "border-amber-100"
     },
     { 
-      label: "GUM VISIBILITY", 
+      label: "Gum Visibility", 
       value: results.keyMetrics.gumVisibility, 
       color: "text-emerald-600",
       bgColor: "bg-emerald-50/50",
       borderColor: "border-emerald-100"
     },
     { 
-      label: "ALIGNMENT", 
+      label: "Alignment", 
       value: results.keyMetrics.alignment, 
       color: "text-emerald-600",
       bgColor: "bg-emerald-50/50",
       borderColor: "border-emerald-100"
     },
     { 
-      label: "CLEANLINESS", 
+      label: "Cleanliness", 
       value: results.keyMetrics.cleanliness, 
       color: "text-emerald-600",
       bgColor: "bg-emerald-50/50",
@@ -97,8 +97,8 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
 
           {/* Summary Section */}
           <div className="p-8 rounded-[24px] bg-slate-50/80 border border-slate-100">
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-4 font-display">
-              CLINICAL SUMMARY
+            <h3 className="text-sm font-normal text-black mb-4 font-display">
+              Clinical Summary
             </h3>
             <p className="text-[17px] font-medium text-slate-700 leading-relaxed font-body">
               {results.summary}
@@ -107,8 +107,8 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
 
           {/* Key Metrics Section */}
           <div className="flex flex-col gap-6">
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 font-display">
-              KEY INDICATORS
+            <h3 className="text-sm font-normal text-black font-display">
+              Key Indicators
             </h3>
             <div className="grid grid-cols-2 gap-5">
               {metrics.map((metric, idx) => (
@@ -120,7 +120,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
                     metric.borderColor
                   )}
                 >
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-display">
+                  <span className="text-xs font-normal text-black font-display">
                     {metric.label}
                   </span>
                   <span className={cn("text-lg font-bold font-body", metric.color)}>
@@ -133,8 +133,8 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
 
           {/* Actionable Steps Section */}
           <div className="p-8 rounded-[32px] bg-white border border-slate-100 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] flex flex-col gap-6">
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 font-display">
-              ACTIONABLE STEPS
+            <h3 className="text-sm font-normal text-black font-display">
+              Actionable Steps
             </h3>
             <ul className="flex flex-col gap-5">
               {results.recommendations.map((rec, idx) => (
@@ -158,9 +158,9 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
             </Button>
             
             <Button 
-              variant="ghost" 
+              variant="outline" 
               size="lg" 
-              className="text-slate-500 font-body hover:text-primary hover:bg-slate-50 h-14 rounded-[20px]" 
+              className="bg-white border-slate-200 text-slate-500 font-body hover:text-primary hover:bg-slate-50 h-14 rounded-[20px]" 
               onClick={onReset}
             >
               <RotateCcw className="w-4 h-4 mr-2" />
