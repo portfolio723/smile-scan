@@ -63,18 +63,25 @@ export default function SmileScanApp() {
   };
 
   return (
-    <main className="max-w-[1200px] mx-auto px-4 md:px-8 py-8 md:py-16 flex flex-col items-center">
-      <div className="w-full max-w-[640px] flex flex-col gap-8">
+    <main className="min-h-screen bg-[#FDFDFD] flex flex-col items-center">
+      <div className="w-full max-w-[640px] px-6 py-12 md:py-20 flex flex-col gap-10">
         {step !== "results" && (
-          <header className="flex flex-col items-center gap-4 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-              SmileScan
-            </h1>
-            <ProgressIndicator currentStep={stepNumber} />
+          <header className="flex flex-col items-center gap-6 text-center">
+            <div className="flex flex-col gap-2">
+              <h1 className="text-4xl font-extrabold font-display text-primary tracking-tight">
+                SmileScan
+              </h1>
+              <p className="text-sm font-medium text-slate-400 font-body uppercase tracking-[0.2em]">
+                Advanced Dental Assessment
+              </p>
+            </div>
+            <div className="w-full max-w-[320px]">
+              <ProgressIndicator currentStep={stepNumber} />
+            </div>
           </header>
         )}
 
-        <div className="w-full transition-all duration-500 ease-in-out">
+        <div className="w-full">
           {step === "upload" && <UploadStep onUpload={handleUpload} />}
           {step === "crop" && originalImage && (
             <CropStep 

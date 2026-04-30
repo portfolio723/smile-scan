@@ -4,7 +4,15 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { SmileAnalysisOutput } from "@/app/page";
-import { CheckCircle2, RotateCcw, Calendar, UserRound } from "lucide-react";
+import { 
+  CheckCircle2, 
+  RotateCcw, 
+  Calendar, 
+  Share2, 
+  Download,
+  ShieldCheck,
+  Check
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ResultsStepProps {
@@ -17,76 +25,109 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
     { 
       label: "TOOTH COLOR", 
       value: results.keyMetrics.toothColor, 
-      color: "text-[#D97706]" // Yellow/Orange for "Medium" feel
+      color: "text-amber-600",
+      bgColor: "bg-amber-50/50",
+      borderColor: "border-amber-100"
     },
     { 
       label: "GUM VISIBILITY", 
       value: results.keyMetrics.gumVisibility, 
-      color: "text-[#059669]" // Green for "Good/Safe"
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50/50",
+      borderColor: "border-emerald-100"
     },
     { 
       label: "ALIGNMENT", 
       value: results.keyMetrics.alignment, 
-      color: "text-[#059669]" 
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50/50",
+      borderColor: "border-emerald-100"
     },
     { 
       label: "CLEANLINESS", 
       value: results.keyMetrics.cleanliness, 
-      color: "text-[#059669]" 
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50/50",
+      borderColor: "border-emerald-100"
     },
   ];
 
   return (
-    <div className="flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 max-w-[560px] mx-auto w-full pb-12">
-      <Card className="p-0 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border-none bg-white rounded-[32px] overflow-hidden">
+    <div className="flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 max-w-[600px] mx-auto w-full pb-20">
+      {/* Top Action Bar */}
+      <div className="flex justify-between items-center px-2">
+        <Button variant="ghost" size="sm" className="text-muted-foreground font-body hover:text-foreground" onClick={onReset}>
+          <RotateCcw className="w-4 h-4 mr-2" />
+          New Scan
+        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" size="sm" className="rounded-full h-9 px-4 font-body border-slate-200">
+            <Share2 className="w-4 h-4 mr-2" />
+            Share
+          </Button>
+          <Button variant="outline" size="sm" className="rounded-full h-9 px-4 font-body border-slate-200">
+            <Download className="w-4 h-4 mr-2" />
+            Export
+          </Button>
+        </div>
+      </div>
+
+      <Card className="p-0 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.14)] border-none bg-white rounded-[40px] overflow-hidden">
         {/* Header Section */}
-        <div className="p-8 md:p-10 flex flex-col gap-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border border-slate-200">
+        <div className="p-8 md:p-12 flex flex-col gap-8">
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 shadow-sm">
                 <img 
-                  src="https://picsum.photos/seed/dentist/100/100" 
-                  alt="Avatar" 
+                  src="https://picsum.photos/seed/dental-pro/200/200" 
+                  alt="Dental Professional" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="flex flex-col">
-                <h1 className="text-xl font-extrabold font-display text-[#1E293B] leading-tight">
-                  Your Smile Analysis
+                <h1 className="text-2xl font-bold font-display text-slate-900 leading-tight tracking-tight">
+                  Your Assessment
                 </h1>
-                <p className="text-[13px] font-medium text-slate-500 font-body">
-                  Reviewed using advanced dental tech
+                <p className="text-sm font-medium text-slate-500 font-body">
+                  Professional-grade smile analysis
                 </p>
               </div>
             </div>
-            <div className="bg-[#ECFDF5] text-[#059669] px-3 py-1 rounded-full text-[11px] font-bold border border-[#A7F3D0] flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#059669]" />
-              85% Confidence
+            <div className="bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-[12px] font-bold border border-emerald-100 flex items-center gap-2 shadow-sm">
+              <Check className="w-3.5 h-3.5" />
+              Verified Analysis
             </div>
           </div>
 
           {/* Summary Section */}
-          <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#F1F5F9]">
-            <h3 className="text-[11px] font-extrabold uppercase tracking-widest text-[#94A3B8] mb-3 font-display">
-              SUMMARY
+          <div className="p-8 rounded-[24px] bg-slate-50/80 border border-slate-100">
+            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-4 font-display">
+              CLINICAL SUMMARY
             </h3>
-            <p className="text-[15px] font-medium text-[#475569] leading-relaxed font-body">
+            <p className="text-[17px] font-medium text-slate-700 leading-relaxed font-body">
               {results.summary}
             </p>
           </div>
 
           {/* Key Metrics Section */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-[11px] font-extrabold uppercase tracking-widest text-[#94A3B8] font-display">
-              KEY METRICS
+          <div className="flex flex-col gap-6">
+            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 font-display">
+              KEY INDICATORS
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-5">
               {metrics.map((metric, idx) => (
-                <div key={idx} className="p-5 rounded-xl border border-[#F1F5F9] bg-white flex flex-col gap-1.5 shadow-sm">
-                  <span className="text-[10px] font-extrabold uppercase tracking-tight text-[#94A3B8] font-display">
+                <div 
+                  key={idx} 
+                  className={cn(
+                    "p-6 rounded-[24px] border flex flex-col gap-2 transition-all duration-300 hover:shadow-md",
+                    metric.bgColor,
+                    metric.borderColor
+                  )}
+                >
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-display">
                     {metric.label}
                   </span>
-                  <span className={cn("text-base font-bold font-body", metric.color)}>
+                  <span className={cn("text-lg font-bold font-body", metric.color)}>
                     {metric.value}
                   </span>
                 </div>
@@ -94,18 +135,18 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
             </div>
           </div>
 
-          {/* Recommendations Section */}
-          <div className="p-6 rounded-2xl bg-white border border-[#F1F5F9] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col gap-4">
-            <h3 className="text-[11px] font-extrabold uppercase tracking-widest text-[#94A3B8] font-display">
-              RECOMMENDATIONS
+          {/* Actionable Steps Section */}
+          <div className="p-8 rounded-[32px] bg-white border border-slate-100 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] flex flex-col gap-6">
+            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 font-display">
+              ACTIONABLE STEPS
             </h3>
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-5">
               {results.recommendations.map((rec, idx) => (
                 <li key={idx} className="flex items-start gap-4">
-                  <div className="mt-0.5 w-5 h-5 rounded-full bg-[#FFF7ED] border border-[#FFEDD5] flex items-center justify-center flex-shrink-0">
-                    <CheckCircle2 className="w-3 h-3 text-[#D97706]" />
+                  <div className="mt-1 w-6 h-6 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-slate-400" />
                   </div>
-                  <p className="text-[14px] text-[#334155] font-medium leading-normal font-body">
+                  <p className="text-[15px] text-slate-600 font-medium leading-normal font-body">
                     {rec}
                   </p>
                 </li>
@@ -114,30 +155,24 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col gap-3 pt-4">
-            <Button size="lg" className="bg-[#D97706] hover:bg-[#B45309] text-white font-bold h-14 rounded-2xl shadow-[0_4px_12px_rgba(217,119,6,0.2)] transition-all border-none font-display">
-              <Calendar className="w-4 h-4 mr-2" />
+          <div className="flex flex-col gap-4 pt-6">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold h-16 rounded-[20px] shadow-xl shadow-primary/20 transition-all border-none font-body text-base">
+              <Calendar className="w-5 h-5 mr-3" />
               Book Professional Consultation
             </Button>
-            <Button variant="outline" size="lg" className="h-14 border-[#E2E8F0] border-2 font-bold rounded-2xl text-[#64748B] hover:bg-slate-50 transition-all font-display" onClick={onReset}>
-              <RotateCcw className="w-4 h-4 mr-2" />
-              Analyze Another Smile
-            </Button>
+            <div className="flex items-center justify-center gap-3 text-xs text-slate-400 font-body">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Private & Secure • HIPAA Compliant Environment</span>
+            </div>
           </div>
-
-          <footer className="text-center mt-4">
-            <p className="text-[10px] font-medium text-[#94A3B8] leading-relaxed max-w-[320px] mx-auto font-body">
-              This assessment is for informational purposes only and does not replace professional dental advice.
-            </p>
-          </footer>
         </div>
       </Card>
 
-      <div className="text-center flex flex-col gap-1 opacity-50">
-        <p className="text-[11px] font-bold text-slate-500 font-display">
-          © 2024 DentalScan • Private & Secure
+      <footer className="text-center px-8">
+        <p className="text-[11px] font-medium text-slate-400 leading-relaxed max-w-[400px] mx-auto font-body">
+          This automated assessment is for informational purposes only. Consult a licensed dentist for medical diagnosis and treatment planning.
         </p>
-      </div>
+      </footer>
     </div>
   );
 }
