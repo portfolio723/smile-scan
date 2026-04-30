@@ -70,7 +70,7 @@ export function UploadStep({ onUpload }: UploadStepProps) {
         </div>
 
         <Button 
-          className="mt-2 bg-[#151B40] hover:bg-[#151B40]/90 text-accent hover:text-white h-12 px-8 rounded-xl font-body transition-colors" 
+          className="mt-2 bg-[#151B40] hover:bg-[#151B40]/90 text-white hover:text-accent h-12 px-8 rounded-xl font-body transition-colors" 
           size="lg"
         >
           Select Image

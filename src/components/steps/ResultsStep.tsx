@@ -152,7 +152,10 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-3 md:gap-4 pt-4 md:pt-6">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-accent hover:text-white transition-colors font-bold h-14 md:h-16 rounded-[16px] md:rounded-[20px] shadow-xl shadow-primary/20 border-none font-body text-sm md:text-base">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white hover:text-accent transition-colors font-bold h-14 md:h-16 rounded-[16px] md:rounded-[20px] shadow-xl shadow-primary/20 border-none font-body text-sm md:text-base"
+            >
               <Calendar className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
               Book Professional Consultation
             </Button>

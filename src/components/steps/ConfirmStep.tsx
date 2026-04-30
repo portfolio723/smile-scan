@@ -31,7 +31,7 @@ export function ConfirmStep({ image, onConfirm, onEdit }: ConfirmStepProps) {
           Edit Crop
         </Button>
         <Button 
-          className="bg-primary hover:bg-primary/90 text-accent hover:text-white transition-colors" 
+          className="bg-primary hover:bg-primary/90 text-white hover:text-accent transition-colors" 
           size="lg" 
           onClick={onConfirm}
         >

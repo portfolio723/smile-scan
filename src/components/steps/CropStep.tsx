@@ -70,7 +70,7 @@ export function CropStep({ image, onCrop, onCancel }: CropStepProps) {
     <Card className="p-6 md:p-10 flex flex-col gap-8 shadow-xl border-border animate-in fade-in slide-in-from-right-4 duration-500">
       <div className="flex flex-col gap-2 text-center">
         <h2 className="text-2xl font-bold font-headline text-foreground">Adjust Your Smile Area</h2>
-        <p className="text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           Drag and zoom to focus on your teeth for accurate results.
         </p>
       </div>
@@ -116,7 +116,7 @@ export function CropStep({ image, onCrop, onCancel }: CropStepProps) {
           Cancel
         </Button>
         <Button 
-          className="bg-primary hover:bg-primary/90 text-accent hover:text-white transition-colors flex-1 md:flex-none h-12 px-8 rounded-xl" 
+          className="bg-primary hover:bg-primary/90 text-white hover:text-accent transition-colors flex-1 md:flex-none h-12 px-8 rounded-xl" 
           onClick={handleCropConfirm}
         >
           Confirm Crop <ArrowRight className="w-4 h-4 ml-2" />
