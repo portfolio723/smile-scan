@@ -60,7 +60,7 @@ export function UploadStep({ onUpload }: UploadStepProps) {
           onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
         />
         
-        <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+        <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
           <Upload className="w-8 h-8 text-primary" />
         </div>
 
