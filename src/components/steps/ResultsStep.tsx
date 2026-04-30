@@ -29,7 +29,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
       </header>
 
       {/* Summary Card */}
-      <Card className="p-6 bg-secondary/30 border-none shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
+      <Card className="p-6 bg-secondary/30 border-none shadow-md animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
         <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">Overall Assessment</h3>
         <p className="text-lg md:text-xl font-medium text-foreground leading-relaxed">
           {results.summary}
@@ -39,7 +39,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
       {/* Metrics Grid */}
       <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
         {metrics.map((metric, idx) => (
-          <Card key={idx} className="p-4 flex flex-col gap-1 border-border shadow-sm">
+          <Card key={idx} className="p-4 flex flex-col gap-1 border-border shadow-md hover:shadow-lg transition-shadow duration-300">
             <span className="text-xs font-medium text-muted-foreground">{metric.label}</span>
             <span className="text-base font-semibold text-foreground">{metric.value}</span>
           </Card>
@@ -47,7 +47,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
       </div>
 
       {/* Recommendations List */}
-      <Card className="p-6 flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300">
+      <Card className="p-6 flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300 shadow-lg border-border">
         <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Personalized Recommendations</h3>
         <ul className="flex flex-col gap-4">
           {results.recommendations.map((rec, idx) => (
@@ -67,7 +67,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
           <Calendar className="w-5 h-5 mr-2" />
           Book Professional Consultation
         </Button>
-        <Button variant="outline" size="lg" className="h-14 border-2 font-semibold rounded-xl" onClick={onReset}>
+        <Button variant="outline" size="lg" className="h-14 border-2 font-semibold rounded-xl shadow-sm hover:shadow-md transition-all" onClick={onReset}>
           <RotateCcw className="w-4 h-4 mr-2" />
           Scan Another Smile
         </Button>
