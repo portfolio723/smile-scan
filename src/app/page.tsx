@@ -73,12 +73,12 @@ export default function SmileScanApp() {
           <header className="flex flex-col items-center gap-6 text-center">
             <div className="flex items-center gap-4">
               {logo && (
-                <div className="w-10 h-10 relative rounded-lg overflow-hidden border border-border shadow-sm">
+                <div className="w-10 h-10 relative rounded-lg overflow-hidden flex-shrink-0">
                   <Image
                     src={logo.imageUrl}
                     alt={logo.description}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     data-ai-hint={logo.imageHint}
                   />
                 </div>

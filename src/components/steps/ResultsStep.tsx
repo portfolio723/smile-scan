@@ -89,7 +89,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
                 </p>
               </div>
             </div>
-            <div className="bg-emerald-50 text-emerald-700 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[11px] md:text-[12px] font-bold border border-emerald-100 flex items-center gap-2 shadow-sm self-start">
+            <div className="bg-emerald-50 text-emerald-700 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[11px] md:text-[12px] font-normal border border-emerald-100 flex items-center gap-2 shadow-sm self-start">
               <Check className="w-3 md:w-3.5 h-3 md:h-3.5" />
               Verified Analysis
             </div>
@@ -100,7 +100,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
             <h3 className="text-xs md:text-sm font-normal text-black mb-3 md:mb-4 font-display">
               Clinical Summary
             </h3>
-            <p className="text-[15px] md:text-[17px] font-medium text-slate-700 leading-relaxed font-body">
+            <p className="text-[15px] md:text-[17px] font-normal text-black leading-relaxed font-body">
               {results.summary}
             </p>
           </div>
@@ -123,7 +123,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
                   <span className="text-[10px] md:text-xs font-normal text-black font-display">
                     {metric.label}
                   </span>
-                  <span className={cn("text-[15px] md:text-lg font-bold font-body", metric.color)}>
+                  <span className={cn("text-[15px] md:text-lg font-normal font-body text-black")}>
                     {metric.value}
                   </span>
                 </div>
@@ -142,7 +142,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
                   <div className="mt-0.5 md:mt-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 shadow-sm">
                     <CheckCircle2 className="w-3 md:w-3.5 h-3 md:h-3.5 text-accent" />
                   </div>
-                  <p className="text-[14px] md:text-[15px] text-slate-600 font-medium leading-normal font-body">
+                  <p className="text-[14px] md:text-[15px] text-black font-normal leading-normal font-body">
                     {rec}
                   </p>
                 </li>
@@ -170,16 +170,16 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
               Retake Scan / Another Image
             </Button>
 
-            <div className="flex items-center justify-center gap-2 md:gap-3 text-[10px] md:text-xs text-slate-400 font-body mt-2">
+            <div className="flex items-center justify-center gap-2 md:gap-3 text-[10px] md:text-xs text-black font-normal font-body mt-2">
               <AlertCircle className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              <span>Private and secure</span>
+              <span>Private And Secure</span>
             </div>
           </div>
         </div>
       </Card>
 
       <footer className="text-center px-4 md:px-8">
-        <p className="text-[10px] md:text-[11px] font-medium text-slate-400 leading-relaxed max-w-[400px] mx-auto font-body">
+        <p className="text-[10px] md:text-[11px] font-normal text-black leading-relaxed max-w-[400px] mx-auto font-body">
           This assessment is for informational purposes only. Consult a licensed dentist for medical diagnosis and treatment planning.
         </p>
       </footer>

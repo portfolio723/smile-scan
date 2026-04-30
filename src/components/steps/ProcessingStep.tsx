@@ -94,7 +94,7 @@ export function ProcessingStep({ image, onComplete }: ProcessingStepProps) {
       </div>
 
       <div className="flex flex-col items-center gap-2">
-        <p className="text-[12px] font-bold text-slate-400 uppercase tracking-widest font-display">
+        <p className="text-[12px] font-normal text-black font-display">
           Private Processing
         </p>
         <p className="text-[11px] text-slate-400 font-body">
