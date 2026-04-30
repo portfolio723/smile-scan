@@ -160,7 +160,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
             <Button 
               variant="outline" 
               size="lg" 
-              className="bg-white border-slate-200 text-slate-500 font-body hover:text-primary hover:bg-slate-50 h-14 rounded-[20px]" 
+              className="bg-white border border-slate-200 text-slate-500 font-body hover:text-primary hover:bg-slate-50 h-14 rounded-[20px] transition-all" 
               onClick={onReset}
             >
               <RotateCcw className="w-4 h-4 mr-2" />
@@ -169,7 +169,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
 
             <div className="flex items-center justify-center gap-3 text-xs text-slate-400 font-body mt-2">
               <AlertCircle className="w-4 h-4" />
-              <span>Informational Purposes Only</span>
+              <span>Private and secure</span>
             </div>
           </div>
         </div>
