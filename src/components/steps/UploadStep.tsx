@@ -4,7 +4,7 @@
 import { useState, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Upload, ShieldCheck, Timer, Smile } from "lucide-react";
+import { Upload, AlertCircle, Timer, Smile } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface UploadStepProps {
@@ -69,15 +69,15 @@ export function UploadStep({ onUpload }: UploadStepProps) {
           <p className="text-sm text-muted-foreground">Drag & drop or choose a photo</p>
         </div>
 
-        <Button className="mt-2" size="lg">
+        <Button className="mt-2" size="lg" variant="secondary">
           Select Image
         </Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t pt-8">
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
-          <ShieldCheck className="w-4 h-4 text-accent" />
-          <span>Private & Secure</span>
+          <AlertCircle className="w-4 h-4 text-accent" />
+          <span>Informational Only</span>
         </div>
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <Timer className="w-4 h-4 text-accent" />

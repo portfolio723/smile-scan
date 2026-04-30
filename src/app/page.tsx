@@ -71,9 +71,6 @@ export default function SmileScanApp() {
               <h1 className="text-4xl font-extrabold font-display text-primary tracking-tight">
                 SmileScan
               </h1>
-              <p className="text-sm font-medium text-slate-400 font-body uppercase tracking-[0.2em]">
-                Advanced Dental Assessment
-              </p>
             </div>
             <div className="w-full max-w-[320px]">
               <ProgressIndicator currentStep={stepNumber} />

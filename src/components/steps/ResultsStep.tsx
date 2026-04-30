@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Card } from "@/components/ui/card";
@@ -9,7 +10,7 @@ import {
   Calendar, 
   Share2, 
   Download,
-  ShieldCheck,
+  AlertCircle,
   Check
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -53,23 +54,23 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
 
   return (
     <div className="flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 max-w-[600px] mx-auto w-full pb-20">
-      {/* Top Action Bar */}
-      <div className="flex justify-end items-center px-2">
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm" className="rounded-full h-9 px-4 font-body border-slate-200">
-            <Share2 className="w-4 h-4 mr-2" />
-            Share
-          </Button>
-          <Button variant="outline" size="sm" className="rounded-full h-9 px-4 font-body border-slate-200">
-            <Download className="w-4 h-4 mr-2" />
-            Export
-          </Button>
-        </div>
-      </div>
-
       <Card className="p-0 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.14)] border-none bg-white rounded-[40px] overflow-hidden">
+        {/* Actions bar inside card */}
+        <div className="flex justify-end items-center px-8 pt-8 pb-0">
+          <div className="flex gap-2">
+            <Button variant="ghost" size="sm" className="rounded-full h-9 px-4 font-body text-slate-400 hover:text-primary">
+              <Share2 className="w-4 h-4 mr-2" />
+              Share
+            </Button>
+            <Button variant="ghost" size="sm" className="rounded-full h-9 px-4 font-body text-slate-400 hover:text-primary">
+              <Download className="w-4 h-4 mr-2" />
+              Export
+            </Button>
+          </div>
+        </div>
+
         {/* Header Section */}
-        <div className="p-8 md:p-12 flex flex-col gap-8">
+        <div className="p-8 md:p-12 md:pt-4 flex flex-col gap-8">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-5">
               <div className="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden border border-slate-100 shadow-sm">
@@ -84,7 +85,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
                   Your Assessment
                 </h1>
                 <p className="text-sm font-medium text-slate-500 font-body">
-                  Professional-grade smile analysis
+                  Professional Review
                 </p>
               </div>
             </div>
@@ -139,7 +140,6 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
               {results.recommendations.map((rec, idx) => (
                 <li key={idx} className="flex items-start gap-4">
                   <div className="mt-1 w-6 h-6 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-                    {/* Icon color changed to gold (accent) */}
                     <CheckCircle2 className="w-3.5 h-3.5 text-accent" />
                   </div>
                   <p className="text-[15px] text-slate-600 font-medium leading-normal font-body">
@@ -157,7 +157,6 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
               Book Professional Consultation
             </Button>
             
-            {/* Relocated New Scan Button */}
             <Button 
               variant="ghost" 
               size="lg" 
@@ -169,8 +168,8 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
             </Button>
 
             <div className="flex items-center justify-center gap-3 text-xs text-slate-400 font-body mt-2">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Private & Secure • HIPAA Compliant Environment</span>
+              <AlertCircle className="w-4 h-4" />
+              <span>Informational Purposes Only</span>
             </div>
           </div>
         </div>
@@ -178,7 +177,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
 
       <footer className="text-center px-8">
         <p className="text-[11px] font-medium text-slate-400 leading-relaxed max-w-[400px] mx-auto font-body">
-          This automated assessment is for informational purposes only. Consult a licensed dentist for medical diagnosis and treatment planning.
+          This assessment is for informational purposes only. Consult a licensed dentist for medical diagnosis and treatment planning.
         </p>
       </footer>
     </div>
