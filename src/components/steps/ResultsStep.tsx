@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Card } from "@/components/ui/card";
@@ -55,11 +54,7 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
   return (
     <div className="flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 max-w-[600px] mx-auto w-full pb-20">
       {/* Top Action Bar */}
-      <div className="flex justify-between items-center px-2">
-        <Button variant="ghost" size="sm" className="text-muted-foreground font-body hover:text-foreground" onClick={onReset}>
-          <RotateCcw className="w-4 h-4 mr-2" />
-          New Scan
-        </Button>
+      <div className="flex justify-end items-center px-2">
         <div className="flex gap-2">
           <Button variant="outline" size="sm" className="rounded-full h-9 px-4 font-body border-slate-200">
             <Share2 className="w-4 h-4 mr-2" />
@@ -144,7 +139,8 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
               {results.recommendations.map((rec, idx) => (
                 <li key={idx} className="flex items-start gap-4">
                   <div className="mt-1 w-6 h-6 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-slate-400" />
+                    {/* Icon color changed to gold (accent) */}
+                    <CheckCircle2 className="w-3.5 h-3.5 text-accent" />
                   </div>
                   <p className="text-[15px] text-slate-600 font-medium leading-normal font-body">
                     {rec}
@@ -160,7 +156,19 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
               <Calendar className="w-5 h-5 mr-3" />
               Book Professional Consultation
             </Button>
-            <div className="flex items-center justify-center gap-3 text-xs text-slate-400 font-body">
+            
+            {/* Relocated New Scan Button */}
+            <Button 
+              variant="ghost" 
+              size="lg" 
+              className="text-slate-500 font-body hover:text-primary hover:bg-slate-50 h-14 rounded-[20px]" 
+              onClick={onReset}
+            >
+              <RotateCcw className="w-4 h-4 mr-2" />
+              Retake Scan / Another Image
+            </Button>
+
+            <div className="flex items-center justify-center gap-3 text-xs text-slate-400 font-body mt-2">
               <ShieldCheck className="w-4 h-4" />
               <span>Private & Secure • HIPAA Compliant Environment</span>
             </div>
