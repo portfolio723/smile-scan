@@ -1,13 +1,14 @@
-
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { UploadStep } from "@/components/steps/UploadStep";
 import { CropStep } from "@/components/steps/CropStep";
 import { ConfirmStep } from "@/components/steps/ConfirmStep";
 import { ProcessingStep } from "@/components/steps/ProcessingStep";
 import { ResultsStep } from "@/components/steps/ResultsStep";
 import { ProgressIndicator } from "@/components/ProgressIndicator";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export type FlowStep = "upload" | "crop" | "confirm" | "processing" | "results";
 
@@ -27,6 +28,8 @@ export default function SmileScanApp() {
   const [originalImage, setOriginalImage] = useState<string | null>(null);
   const [croppedImage, setCroppedImage] = useState<string | null>(null);
   const [results, setResults] = useState<SmileAnalysisOutput | null>(null);
+
+  const logo = PlaceHolderImages.find((img) => img.id === "app-logo");
 
   const stepNumber = {
     upload: 1,
@@ -67,7 +70,18 @@ export default function SmileScanApp() {
       <div className="w-full max-w-[640px] px-6 py-12 md:py-20 flex flex-col gap-10">
         {step !== "results" && (
           <header className="flex flex-col items-center gap-6 text-center">
-            <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-4">
+              {logo && (
+                <div className="w-10 h-10 relative rounded-lg overflow-hidden border border-border shadow-sm">
+                  <Image
+                    src={logo.imageUrl}
+                    alt={logo.description}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={logo.imageHint}
+                  />
+                </div>
+              )}
               <h1 className="text-4xl font-extrabold font-display text-primary tracking-tight">
                 SmileScan
               </h1>
