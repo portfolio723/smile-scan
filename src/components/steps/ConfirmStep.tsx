@@ -1,8 +1,9 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Shield, Sparkles } from "lucide-react";
+import { Shield, ArrowRight } from "lucide-react";
 
 interface ConfirmStepProps {
   image: string;
@@ -34,7 +35,7 @@ export function ConfirmStep({ image, onConfirm, onEdit }: ConfirmStepProps) {
           size="lg" 
           onClick={onConfirm}
         >
-          Analyze Smile <Sparkles className="w-4 h-4 ml-2" />
+          Analyze Smile <ArrowRight className="w-4 h-4 ml-2" />
         </Button>
       </div>
 

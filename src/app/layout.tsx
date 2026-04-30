@@ -1,9 +1,10 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'SmileScan AI | Professional Dental Analysis',
-  description: 'Get a private, professional-grade assessment of your smile using advanced dental AI.',
+  title: 'SmileScan | Professional Dental Assessment',
+  description: 'Get a private, professional-grade assessment of your smile.',
 };
 
 export default function RootLayout({

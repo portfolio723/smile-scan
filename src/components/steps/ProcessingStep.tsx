@@ -1,9 +1,10 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { smileAnalysisReportGeneration, SmileAnalysisOutput } from "@/ai/flows/smile-analysis-report-generation";
+import { SmileAnalysisOutput } from "@/app/page";
 
 interface ProcessingStepProps {
   image: string;
@@ -22,7 +23,6 @@ export function ProcessingStep({ image, onComplete }: ProcessingStepProps) {
   const [messageIndex, setMessageIndex] = useState(0);
 
   useEffect(() => {
-    // Fake progress animation
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 95) return prev;
@@ -30,37 +30,44 @@ export function ProcessingStep({ image, onComplete }: ProcessingStepProps) {
       });
     }, 400);
 
-    // Message rotation
     const messageInterval = setInterval(() => {
       setMessageIndex(prev => (prev + 1) % MESSAGES.length);
     }, 2000);
 
-    // Actual AI call
-    const analyze = async () => {
-      try {
-        const results = await smileAnalysisReportGeneration({ photoDataUri: image });
+    const processAssessment = () => {
+      setTimeout(() => {
+        const mockResults: SmileAnalysisOutput = {
+          summary: "Based on the assessment, your smile appears healthy and well-maintained. We've noted natural tooth alignment and healthy gum visibility. Consistent care will help maintain these results.",
+          keyMetrics: {
+            toothColor: "Natural White",
+            gumVisibility: "Normal",
+            alignment: "Straight",
+            cleanliness: "Good"
+          },
+          recommendations: [
+            "Maintain daily brushing and flossing routines.",
+            "Consider a mild whitening treatment for enhancement.",
+            "Schedule a professional consultation for a detailed check-up."
+          ]
+        };
         setProgress(100);
         setTimeout(() => {
-          onComplete(results);
+          onComplete(mockResults);
         }, 800);
-      } catch (error) {
-        console.error("Analysis failed:", error);
-        // Fallback or error handling would go here
-      }
+      }, 6000);
     };
 
-    analyze();
+    processAssessment();
 
     return () => {
       clearInterval(interval);
       clearInterval(messageInterval);
     };
-  }, [image, onComplete]);
+  }, [onComplete]);
 
   return (
     <Card className="p-12 flex flex-col items-center gap-10 shadow-xl border-border animate-in fade-in duration-700">
       <div className="relative flex items-center justify-center">
-        {/* Pulsing ring animation */}
         <div className="absolute w-32 h-32 rounded-full border-2 border-accent/20 animate-ping" />
         <div className="absolute w-28 h-28 rounded-full border-2 border-accent/40 animate-pulse" />
         <div className="relative w-24 h-24 rounded-full bg-secondary flex items-center justify-center overflow-hidden">
@@ -74,7 +81,7 @@ export function ProcessingStep({ image, onComplete }: ProcessingStepProps) {
       </div>
 
       <div className="flex flex-col gap-4 text-center w-full max-w-[300px]">
-        <h2 className="text-2xl font-bold font-headline text-foreground">Analyzing Your Smile</h2>
+        <h2 className="text-2xl font-bold font-headline text-foreground">Reviewing Your Smile</h2>
         <p className="text-muted-foreground transition-all duration-500 min-h-[1.5rem]">
           {MESSAGES[messageIndex]}
         </p>

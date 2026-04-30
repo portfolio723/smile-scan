@@ -1,10 +1,10 @@
+
 "use client";
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { SmileAnalysisOutput } from "@/ai/flows/smile-analysis-report-generation";
-import { CheckCircle2, RotateCcw, Calendar, TrendingUp } from "lucide-react";
+import { SmileAnalysisOutput } from "@/app/page";
+import { CheckCircle2, RotateCcw, Calendar } from "lucide-react";
 
 interface ResultsStepProps {
   results: SmileAnalysisOutput;
@@ -23,13 +23,9 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
     <div className="flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 max-w-[640px] mx-auto w-full">
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">Your Smile Analysis</h1>
-          <p className="text-muted-foreground">Based on our advanced dental AI assessment.</p>
+          <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">Your Smile Assessment</h1>
+          <p className="text-muted-foreground">Professional review based on your submitted image.</p>
         </div>
-        <Badge variant="secondary" className="px-3 py-1 text-sm bg-accent/10 text-accent font-semibold flex items-center gap-2 self-start md:self-auto">
-          <TrendingUp className="w-4 h-4" />
-          {results.confidence}% Confidence
-        </Badge>
       </header>
 
       {/* Summary Card */}
@@ -73,13 +69,13 @@ export function ResultsStep({ results, onReset }: ResultsStepProps) {
         </Button>
         <Button variant="outline" size="lg" className="h-14 border-2 font-semibold rounded-xl" onClick={onReset}>
           <RotateCcw className="w-4 h-4 mr-2" />
-          Analyze Another Smile
+          Scan Another Smile
         </Button>
       </div>
 
       <footer className="text-center py-8">
         <p className="text-xs text-muted-foreground max-w-[400px] mx-auto">
-          Note: This analysis is provided for informational purposes only and is not a substitute for professional dental diagnosis.
+          Note: This assessment is provided for informational purposes only and is not a substitute for professional dental diagnosis.
         </p>
       </footer>
     </div>

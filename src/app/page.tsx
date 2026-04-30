@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -7,9 +8,19 @@ import { ConfirmStep } from "@/components/steps/ConfirmStep";
 import { ProcessingStep } from "@/components/steps/ProcessingStep";
 import { ResultsStep } from "@/components/steps/ResultsStep";
 import { ProgressIndicator } from "@/components/ProgressIndicator";
-import { SmileAnalysisOutput } from "@/ai/flows/smile-analysis-report-generation";
 
 export type FlowStep = "upload" | "crop" | "confirm" | "processing" | "results";
+
+export interface SmileAnalysisOutput {
+  summary: string;
+  keyMetrics: {
+    toothColor: string;
+    gumVisibility: string;
+    alignment: string;
+    cleanliness: string;
+  };
+  recommendations: string[];
+}
 
 export default function SmileScanApp() {
   const [step, setStep] = useState<FlowStep>("upload");
@@ -57,7 +68,7 @@ export default function SmileScanApp() {
         {step !== "results" && (
           <header className="flex flex-col items-center gap-4 text-center">
             <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-              SmileScan AI
+              SmileScan
             </h1>
             <ProgressIndicator currentStep={stepNumber} />
           </header>
