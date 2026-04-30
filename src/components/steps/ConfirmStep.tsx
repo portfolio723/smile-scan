@@ -3,7 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Shield, ArrowRight } from "lucide-react";
+import { AlertCircle, ArrowRight } from "lucide-react";
 
 interface ConfirmStepProps {
   image: string;
@@ -31,7 +31,7 @@ export function ConfirmStep({ image, onConfirm, onEdit }: ConfirmStepProps) {
           Edit Crop
         </Button>
         <Button 
-          className="bg-primary hover:bg-primary/90" 
+          className="bg-primary hover:bg-primary/90 text-accent hover:text-white transition-colors" 
           size="lg" 
           onClick={onConfirm}
         >
@@ -40,8 +40,8 @@ export function ConfirmStep({ image, onConfirm, onEdit }: ConfirmStepProps) {
       </div>
 
       <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-        <Shield className="w-3 h-3" />
-        <span>Your image will only be used for this analysis.</span>
+        <AlertCircle className="w-3 h-3" />
+        <span>Private and secure</span>
       </div>
     </Card>
   );

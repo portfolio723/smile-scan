@@ -86,6 +86,7 @@ export function CropStep({ image, onCrop, onCancel }: CropStepProps) {
           onZoomChange={setZoom}
           classes={{
             containerClassName: "rounded-xl",
+            cropAreaClassName: "border-2 border-accent shadow-[0_0_0_9999px_rgba(0,0,0,0.5)]",
           }}
         />
       </div>
@@ -115,7 +116,7 @@ export function CropStep({ image, onCrop, onCancel }: CropStepProps) {
           Cancel
         </Button>
         <Button 
-          className="bg-primary hover:bg-primary/90 flex-1 md:flex-none h-12 px-8 rounded-xl" 
+          className="bg-primary hover:bg-primary/90 text-accent hover:text-white transition-colors flex-1 md:flex-none h-12 px-8 rounded-xl" 
           onClick={handleCropConfirm}
         >
           Confirm Crop <ArrowRight className="w-4 h-4 ml-2" />
