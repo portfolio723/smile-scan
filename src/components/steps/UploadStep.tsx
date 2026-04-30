@@ -4,7 +4,7 @@
 import { useState, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Upload, AlertCircle, Timer, ShieldCheck } from "lucide-react";
+import { Upload, AlertCircle, Timer } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface UploadStepProps {
@@ -77,12 +77,12 @@ export function UploadStep({ onUpload }: UploadStepProps) {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t pt-8">
-        <div className="flex items-center gap-3 text-sm text-muted-foreground font-body">
-          <ShieldCheck className="w-4 h-4 text-accent" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t pt-8 justify-items-center">
+        <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground font-body">
+          <AlertCircle className="w-4 h-4 text-accent" />
           <span>Private and secure</span>
         </div>
-        <div className="flex items-center gap-3 text-sm text-muted-foreground font-body">
+        <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground font-body">
           <Timer className="w-4 h-4 text-accent" />
           <span>Takes 30 seconds</span>
         </div>
